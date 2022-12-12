@@ -33,8 +33,9 @@ def show_names():
     print("\n")
     print("\tHere are the specials: ")
     for special in specials:
-        print("\t-", special.title())
-        
+        print("\t-", special.title())        
+
+#Ask user for how many scoops wants and save the flavour of the user
 def make_flavour(num_scoops):
     scoop_flavour = [input("Which flavour? ")]
     for flavour in scoop_flavour:
@@ -44,8 +45,8 @@ def make_flavour(num_scoops):
             specials[flavour] += num_scoops
         else: 
             print("Invalid flavour, we dont have this flavour in store, choose another one!")
-            make_flavour()  
-                    
+            make_flavour() 
+                        
 def make_order():
     print("\n\t[1] One Scoop\n \t[2] Two Scoop\n ")
     scoops = int(input("How many scoops? "))
@@ -54,7 +55,6 @@ def make_order():
     else: 
         print("Invalid number of scoops\n")
         make_order()
-        os.system('clear')
          
 ### MAIN PROGRAM ###
 

@@ -1,0 +1,60 @@
+import os
+
+
+flavours={"pistacho": 0, "cookies and cream": 0, "chocolate": 0, "vanilla": 0, "strawberry": 0, "dulce de leche": 0, "chocalte chip": 0, "chocolate mint": 0, "mango": 0, "coffee": 0}
+specials={"unicorny": 0, "extra chocolate": 0}
+
+### FUNCTIONS ###
+
+def display_title_bar():
+    # Clears the terminal screen, and displays a title bar.
+    os.system('clear')
+              
+    print("\t**********************************************")
+    print("\t***       Welcome to Scopper Tracker!      ***")
+    print("\t**********************************************")
+    print("\t**********************************************")
+    print("\t***           Choose your flavour          ***")
+    print("\t**********************************************")
+    
+    
+    
+def get_user_choice():
+    # Let users know what they can do.
+    return input("\nWhat would you like to do? \n[1]See flavours \n[2]Order now \n[q]Quit \n")
+    
+def show_names():
+    # Shows the special and regular flavours
+    print("\n")
+    print("\tUsual flavours: ")
+    for flavour in flavours:
+        print("\t-", flavour.title())
+
+    print("\n")
+    print("\tHere are the specials: ")
+    for special in specials:
+        print("\t-", special.title())
+        
+def make_order():
+    print("We are working on it..")
+### MAIN PROGRAM ###
+
+# Set up a loop where users can choose what they'd like to do.
+names = []
+
+choice = ''
+display_title_bar()
+while choice != 'q':    
+    
+    choice = get_user_choice()
+    
+    # Respond to the user's choice.
+    display_title_bar()
+    if choice == '1':
+        show_names()
+    elif choice == '2':
+        make_order()
+    elif choice == 'q':
+        print("\nThank you for your order. See you soon!.")
+    else:
+        print("\nI didn't understand that choice.\n")

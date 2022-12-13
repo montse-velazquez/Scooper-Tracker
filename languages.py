@@ -22,7 +22,7 @@ def display_title_bar():
     
 def get_user_choice():
     # Let users know what they can do.
-    return input("\nWhat would you like to do? \n[1]See flavours \n[2]Order now \n[3]Sales \n[4] Finish Day \n[q]Quit \n")
+    return input("\nWhat would you like to do? \n[1]See flavours \n[2]Order now \n[3]Sales \n[4] Finish Day \n[5] Flavours Sold \n[q]Quit \n")
     
 def show_names():
     # Shows the special and regular flavours
@@ -90,6 +90,10 @@ def set_date():
     day = int(input("Set day: "))
     set_keyDate = date(year, month, day)
     return set_keyDate
+
+def printing_flavours(flav):
+    for flavs in flav:
+        print(flavs.capitalize(), "sold -",flav[flavs], "scoops")
          
 ### MAIN PROGRAM ###
 
@@ -113,6 +117,10 @@ while choice != 'q':
     elif choice == '4':
         sales[set_date()] = sum(sold)
         print(sales)
+    elif choice == '5':
+        printing_flavours(flavours)
+        print("\n")
+        printing_flavours(specials)
     elif choice == 'q':
         print("\nThank you for your order. See you soon!.")
     else:

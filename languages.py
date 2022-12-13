@@ -70,12 +70,16 @@ def make_bill(scoops, bill = 0):
  #May add a try/except in case user types flavour                       
 def make_order():
     print("\n\t[1] One Scoop\n \t[2] Two Scoop\n ")
-    scoops = int(input("How many scoops? "))
-    if scoops < 3: 
-        make_flavour(scoops)
-        return scoops ###
-    else: 
-        print("Invalid number of scoops\n")
+    try: 
+        scoops = int(input("How many scoops? "))
+        if scoops < 3: 
+            make_flavour(scoops)
+            return scoops ###
+        else: 
+            print("Invalid number of scoops\n")
+            make_order()
+    except:
+        print("You need to input a number like [1] or [2] ")
         make_order()
          
 ### MAIN PROGRAM ###

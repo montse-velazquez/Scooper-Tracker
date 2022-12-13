@@ -46,12 +46,28 @@ def make_flavour(num_scoops):
         else: 
             print("Invalid flavour, we dont have this flavour in store, choose another one!")
             make_flavour() 
+    bill = input("Would you like to get your bill? [y/n]") #Ask user if they will want to get the bill 
+    if bill == 'y':
+        make_bill(num_scoops)
+    elif bill == 'n':
+        print("Thank you for preference! ")
+    else:
+        print("Sorry i could get your answer")
+
+#Creates the bill of the user and goes back to the menu
+def make_bill(scoops):
+    if scoops == 1:
+        print("Your bill is: $5")
+    else:
+        print("Your bill is: $7")
+        
                         
 def make_order():
     print("\n\t[1] One Scoop\n \t[2] Two Scoop\n ")
     scoops = int(input("How many scoops? "))
     if scoops < 3: 
         make_flavour(scoops)
+        return scoops ###
     else: 
         print("Invalid number of scoops\n")
         make_order()

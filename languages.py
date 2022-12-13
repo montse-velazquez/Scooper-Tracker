@@ -21,7 +21,7 @@ def display_title_bar():
     
 def get_user_choice():
     # Let users know what they can do.
-    return input("\nWhat would you like to do? \n[1]See flavours \n[2]Order now \n[q]Quit \n")
+    return input("\nWhat would you like to do? \n[1]See flavours \n[2]Order now \n[3]Sales \n[q]Quit \n")
     
 def show_names():
     # Shows the special and regular flavours
@@ -46,22 +46,28 @@ def make_flavour(num_scoops):
         else: 
             print("Invalid flavour, we dont have this flavour in store, choose another one!")
             make_flavour() 
-    bill = input("Would you like to get your bill? [y/n]") #Ask user if they will want to get the bill 
+    bill = input("Would you like to get your bill? [y]") #Ask user if they will want to get the bill 
     if bill == 'y':
         make_bill(num_scoops)
-    elif bill == 'n':
-        print("Thank you for preference! ")
     else:
         print("Sorry i could get your answer")
+        make_bill(num_scoops)
 
 #Creates the bill of the user and goes back to the menu
-def make_bill(scoops):
+sales = [0]
+def make_bill(scoops, bill = 0):
     if scoops == 1:
-        print("Your bill is: $5")
+        bill += 5
+        print("Your bill is: ", bill)
+        sales.append(bill)
     else:
-        print("Your bill is: $7")
+        bill += 7
+        print("Your bill is: ", bill)
+        sales.append(bill)
+    
+    
         
-                        
+ #May add a try/except in case user types flavour                       
 def make_order():
     print("\n\t[1] One Scoop\n \t[2] Two Scoop\n ")
     scoops = int(input("How many scoops? "))
@@ -89,6 +95,8 @@ while choice != 'q':
         show_names()
     elif choice == '2':
         make_order()
+    elif choice == '3':
+        print("Sales so far: ", sum(sales))
     elif choice == 'q':
         print("\nThank you for your order. See you soon!.")
     else:

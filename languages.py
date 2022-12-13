@@ -1,9 +1,10 @@
 import os
+from datetime import date
 
 
 flavours={"pistacho": 0, "cookies and cream": 0, "chocolate": 0, "vanilla": 0, "strawberry": 0, "dulce de leche": 0, "chocalte chip": 0, "chocolate mint": 0, "mango": 0, "coffee": 0}
 specials={"unicorny": 0, "extra chocolate": 0}
-
+sales = {}
 ### FUNCTIONS ###
 
 def display_title_bar():
@@ -21,7 +22,7 @@ def display_title_bar():
     
 def get_user_choice():
     # Let users know what they can do.
-    return input("\nWhat would you like to do? \n[1]See flavours \n[2]Order now \n[3]Sales \n[q]Quit \n")
+    return input("\nWhat would you like to do? \n[1]See flavours \n[2]Order now \n[3]Sales \n[4] Finish Day \n[q]Quit \n")
     
 def show_names():
     # Shows the special and regular flavours
@@ -50,20 +51,20 @@ def make_flavour(num_scoops):
     if bill == 'y':
         make_bill(num_scoops)
     else:
-        print("Sorry i could get your answer")
+        print("Sorry i could get your answer, either way...")
         make_bill(num_scoops)
 
 #Creates the bill of the user and goes back to the menu
-sales = [0]
+sold = [0]
 def make_bill(scoops, bill = 0):
     if scoops == 1:
         bill += 5
         print("Your bill is: ", bill)
-        sales.append(bill)
+        sold.append(bill)
     else:
         bill += 7
         print("Your bill is: ", bill)
-        sales.append(bill)
+        sold.append(bill)
     
     
         
@@ -81,6 +82,14 @@ def make_order():
     except:
         print("You need to input a number like [1] or [2] ")
         make_order()
+
+def set_date():
+    print("Set the day that you just finish! ")
+    year = int(input("Set year: "))
+    month = int(input("Set month: "))
+    day = int(input("Set day: "))
+    set_keyDate = date(year, month, day)
+    return set_keyDate
          
 ### MAIN PROGRAM ###
 
@@ -100,7 +109,10 @@ while choice != 'q':
     elif choice == '2':
         make_order()
     elif choice == '3':
-        print("Sales so far: ", sum(sales))
+        print("Sales so far: ", sum(sold))
+    elif choice == '4':
+        sales[set_date()] = sum(sold)
+        print(sales)
     elif choice == 'q':
         print("\nThank you for your order. See you soon!.")
     else:

@@ -93,7 +93,7 @@ def set_date():
 
 def printing_flavours(flav):
     for flavs in flav:
-        print(flavs.capitalize(), "sold -",flav[flavs], "scoops")
+        print(flavs.capitalize(), "sold -",flav[flavs], "Scoops")
          
 ### MAIN PROGRAM ###
 

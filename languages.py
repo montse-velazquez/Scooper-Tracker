@@ -18,6 +18,7 @@ def display_title_bar():
     print("\t**********************************************")
     print("\t***           Choose your flavour          ***")
     print("\t**********************************************")
+    print('\n')
     
     
     
@@ -127,7 +128,7 @@ class Mathematics:
         position = val_list.index(sort_lists[-1])
         if position == 0:
             print("Sorry, we havent sold any flavour yet in", self.name)
-        else:
+        else: 
             print("The flavour with bigger selling today was", key_list[position].capitalize(), "by selling: ", sort_lists[-1], "Scoops")
         return sort_lists
          

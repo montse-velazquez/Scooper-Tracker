@@ -129,10 +129,8 @@ class Mathematics:
         val_list = list(self.listes.values())
  
         position = val_list.index(sort_lists[-1])
-        if position == 0:
-            print("Sorry, we havent sold any flavour yet in", self.name)
-        else: 
-            print("The flavour with bigger selling today was", key_list[position].capitalize(), "by selling: ", sort_lists[-1], "Scoops")
+        
+        print("The flavour with bigger selling today was", key_list[position].capitalize(), "by selling: ", sort_lists[-1], "Scoops")
         return sort_lists
 
     def get_media(self):
@@ -155,9 +153,14 @@ class Mathematics:
         print("The next flavours were the only ones that made sales today")
         for i in clean: 
             position = val_list.index(i)
-            print("- ", key_list[position].capitalize())
+            print("- ", key_list[position].capitalize()) 
 
-         
+def check_sells(list):
+    x = 0
+    for flavs in list:
+        if list[flavs] == 0:
+            x += 1 
+    return x        
 ### MAIN PROGRAM ###
 
 # Set up a loop where users can choose what they'd like to do.
@@ -191,15 +194,19 @@ while choice != 'q':
         # Upload_file(flavours, "Classic flavours")
         # Upload_file(specials, "Special Flavours")
     elif choice == '7':
-        sort_1 = Mathematics(flavours, "Classic flavours")
-        sort_2 = Mathematics(specials, "Special flavours")
-        sort_1.sort_list()
-        sort_1.get_media()
-        sort_1.get_less_favorite()
-        print('\n')
-        sort_2.sort_list()
-        sort_2.get_media()
-        sort_2.get_less_favorite()
+        if (check_sells(flavours) == 10) or (check_sells(specials) == 2):
+            print("We havens sold any Classic flavour yet! Try again later")
+        else: 
+            sort_1 = Mathematics(flavours, "Classic flavours")
+            sort_2 = Mathematics(specials, "Special flavours")
+            sort_1.sort_list()
+            sort_1.get_media()
+            sort_1.get_less_favorite()
+            print('\n')
+            sort_2.sort_list()
+            sort_2.get_media()
+            sort_2.get_less_favorite()
+
     elif choice == 'q':
         print("\nThank you for your order. See you soon!.")
     else:

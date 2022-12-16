@@ -51,7 +51,7 @@ def make_flavour(num_scoops):
     if bill == 'y':
         make_bill(num_scoops)
     else:
-        print("Sorry i could get your answer, either way...")
+        print("Sorry i couldn't get your answer, either way...")
         make_bill(num_scoops)
 
 #Creates the bill of the user and goes back to the menu
@@ -94,6 +94,20 @@ def set_date():
 def printing_flavours(flav):
     for flavs in flav:
         print(flavs.capitalize(), "sold -",flav[flavs], "Scoops")
+
+#Add file, for having records of the sales and scoops sold
+# f = open("myfile.txt", "a")
+
+# def Upload_file(add_list, which_is):
+#     os.system('clear')
+#     f.write("\n")
+#     f.write(which_is)
+#     f.write("\n\n")
+#     for flavs in add_list:
+#         f.write(flavs)
+#         f.write(" scoops sold: ")
+#         f.write(str(add_list[flavs]))
+#         f.write("\n")
          
 ### MAIN PROGRAM ###
 
@@ -121,6 +135,13 @@ while choice != 'q':
         printing_flavours(flavours)
         print("\n")
         printing_flavours(specials)
+    elif choice == '6':
+        pass
+        # f = open("myfile.txt", "a")
+        # f.write(str(set_date()))
+        # Upload_file(flavours, "Classic flavours")
+        # Upload_file(specials, "Special Flavours")
+        
     elif choice == 'q':
         print("\nThank you for your order. See you soon!.")
     else:

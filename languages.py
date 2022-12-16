@@ -6,7 +6,7 @@ from itertools import filterfalse
 
 
 flavours={"pistacho": 0, "cookies and cream": 0, "chocolate": 0, "vanilla": 0, "strawberry": 0, "dulce de leche": 0, "chocalte chip": 0, "chocolate mint": 0, "mango": 0, "coffee": 0}
-specials={"unicorny": 0, "extra chocolate": 0}
+specials={ }
 sales = {}
 ### FUNCTIONS ###
 
@@ -26,7 +26,7 @@ def display_title_bar():
     
 def get_user_choice():
     # Let users know what they can do.
-    print("\n[1]See flavours \n[2]Order now \n[3]Sales \n[4] Finish Day \n[5] Flavours Sold \n[6]Check files \n[7]Stadistics \n[q]Quit \n")
+    print("\n[1]See flavours \n[2]Update specials \n[3]Order now \n[4]Sales \n[5] Finish Day \n[6] Flavours Sold \n[7]Save to data base \n[8]Stadistics \n[0]Quit \n")
     return input("\nWhat would you like to do? ")
     
 def show_names():
@@ -90,11 +90,22 @@ def make_order():
 
 def set_date():
     print("Set the day that you just finish! ")
-    year = int(input("Set year: "))
-    month = int(input("Set month: "))
-    day = int(input("Set day: "))
-    set_keyDate = date(year, month, day)
-    return set_keyDate
+    try:
+        year = int(input("Set year: "))
+        month = int(input("Set month: "))
+        day = int(input("Set day: "))
+     
+        key_date = date(year, month, day)
+        sales[key_date.strftime("%d-%m-%Y")] = sum(sold)
+
+    except ValueError:
+        print("Double check you are typing down on the correct order the date")
+        set_date()
+    except:
+        print("Double check you are typing down on the correct order the date")
+        set_date()
+    
+    
 
 def printing_flavours(flav):
     for flavs in flav:
@@ -160,7 +171,21 @@ def check_sells(list):
     for flavs in list:
         if list[flavs] == 0:
             x += 1 
-    return x        
+    return x  
+
+def update_flavours():
+    name = input("What's is the name of today's special flavour? \n").lower()
+    specials[name] = 0 
+    user = input("Are you adding any other flavour? [y/n]")
+    if user == 'y':
+        update_flavours()
+    elif user =='n':
+        print("This is your new list of special flavours",)
+        for special in specials:
+            print("-", special.title())
+    else:
+        print("Sorry i could undertand your answer")
+              
 ### MAIN PROGRAM ###
 
 # Set up a loop where users can choose what they'd like to do.
@@ -168,7 +193,7 @@ names = []
 
 choice = ''
 display_title_bar()
-while choice != 'q':    
+while choice != '0':    
     
     choice = get_user_choice()
     
@@ -177,25 +202,27 @@ while choice != 'q':
     if choice == '1':
         show_names()
     elif choice == '2':
-        make_order()
+        update_flavours()
     elif choice == '3':
-        print("Sales so far: ", sum(sold))
+        make_order()
     elif choice == '4':
-        sales[set_date()] = sum(sold)
-        print(sales)
+        print("Sales so far: ", sum(sold))
     elif choice == '5':
+        set_date()
+        print("The sales of", sales)
+    elif choice == '6':
         printing_flavours(flavours)
         print("\n")
         printing_flavours(specials)
-    elif choice == '6':
+    elif choice == '7':
         pass
         # f = open("myfile.txt", "a")
         # f.write(str(set_date()))
         # Upload_file(flavours, "Classic flavours")
         # Upload_file(specials, "Special Flavours")
-    elif choice == '7':
+    elif choice == '8':
         if (check_sells(flavours) == 10) or (check_sells(specials) == 2):
-            print("We havens sold any Classic flavour yet! Try again later")
+            print("We havens sold any flavours yet! Try again later")
         else: 
             sort_1 = Mathematics(flavours, "Classic flavours")
             sort_2 = Mathematics(specials, "Special flavours")
@@ -206,8 +233,11 @@ while choice != 'q':
             sort_2.sort_list()
             sort_2.get_media()
             sort_2.get_less_favorite()
+    elif choice == '9':
+        f = open("myfile.txt", "r")
+        print(f.read())
 
-    elif choice == 'q':
+    elif choice == '0':
         print("\nThank you for your order. See you soon!.")
     else:
         print("\nI didn't understand that choice.\n")

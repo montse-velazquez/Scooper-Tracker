@@ -1,5 +1,6 @@
 import os
 from datetime import date
+from statistics import mean
 
 
 flavours={"pistacho": 0, "cookies and cream": 0, "chocolate": 0, "vanilla": 0, "strawberry": 0, "dulce de leche": 0, "chocalte chip": 0, "chocolate mint": 0, "mango": 0, "coffee": 0}
@@ -22,7 +23,8 @@ def display_title_bar():
     
 def get_user_choice():
     # Let users know what they can do.
-    return input("\nWhat would you like to do? \n[1]See flavours \n[2]Order now \n[3]Sales \n[4] Finish Day \n[5] Flavours Sold \n[q]Quit \n")
+    print("\n[1]See flavours \n[2]Order now \n[3]Sales \n[4] Finish Day \n[5] Flavours Sold \n[6]Check files \n[7]Stadistics \n[q]Quit \n")
+    return input("\nWhat would you like to do? ")
     
 def show_names():
     # Shows the special and regular flavours
@@ -108,6 +110,26 @@ def printing_flavours(flav):
 #         f.write(" scoops sold: ")
 #         f.write(str(add_list[flavs]))
 #         f.write("\n")
+
+class Mathematics: 
+    def __init__(self, listes, name):
+        self.listes = listes
+        self.name = name
+    
+    def sort_list(self):
+        sort_lists = []
+        for flavs in self.listes:
+            sort_lists.append(self.listes[flavs])
+        sort_lists = sorted(sort_lists)
+        key_list = list(self.listes.keys())
+        val_list = list(self.listes.values())
+ 
+        position = val_list.index(sort_lists[-1])
+        if position == 0:
+            print("Sorry, we havent sold any flavour yet in", self.name)
+        else:
+            print("The flavour with bigger selling today was", key_list[position].capitalize(), "by selling: ", sort_lists[-1], "Scoops")
+        return sort_lists
          
 ### MAIN PROGRAM ###
 
@@ -141,7 +163,12 @@ while choice != 'q':
         # f.write(str(set_date()))
         # Upload_file(flavours, "Classic flavours")
         # Upload_file(specials, "Special Flavours")
-        
+    elif choice == '7':
+        sort_1 = Mathematics(flavours, "Classic flavours")
+        sort_2 = Mathematics(specials, "Special flavours")
+        sort_1.sort_list()
+        print('\n')
+        sort_2.sort_list()
     elif choice == 'q':
         print("\nThank you for your order. See you soon!.")
     else:

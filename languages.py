@@ -5,8 +5,8 @@ from math import isnan
 from itertools import filterfalse
 from Mathematics import Mathematics
 flavours={"pistacho": 0, "cookies and cream": 0, "chocolate": 0, "vanilla": 0, "strawberry": 0, "dulce de leche": 0, "chocalte chip": 0, "chocolate mint": 0, "mango": 0, "coffee": 0}
-specials={ }
-sales = {}
+specials={}
+sales = {45}
 sold = [0] 
 
 ### FUNCTIONS ###
@@ -97,7 +97,7 @@ def set_date():
         day = int(input("Set day: "))
      
         key_date = date(year, month, day)
-        sales[key_date.strftime("%d-%m-%Y")] = sum(sold)
+        return key_date
 
     except ValueError:
         print("Double check you are typing down on the correct order the date")
@@ -112,19 +112,19 @@ def printing_flavours(flav):
     for flavs in flav:
         print(flavs.capitalize(), "sold -",flav[flavs], "Scoops")
 
-# Add file, for having records of the sales and scoops sold
-# f = open("myfile.txt", "a")
+#Add file, for having records of the sales and scoops sold
 
-# def Upload_file(add_list, which_is):
-#     os.system('clear')
-#     f.write("\n")
-#     f.write(which_is)
-#     f.write("\n\n")
-#     for flavs in add_list:
-#         f.write(flavs)
-#         f.write(" scoops sold: ")
-#         f.write(str(add_list[flavs]))
-#         f.write("\n")
+
+def Upload_file(add_list, which_is):
+    os.system('clear')
+    f.write("\n")
+    f.write(which_is)
+    f.write("\n\n")
+    for flavs in add_list:
+        f.write(flavs)
+        f.write(" scoops sold: ")
+        f.write(str(add_list[flavs]))
+        f.write("\n")
 
 def check_sells(list):
     x = 0
@@ -168,18 +168,21 @@ while choice != '0':
     elif choice == '4':
         print("Sales so far: ", sum(sold))
     elif choice == '5':
-        set_date()
-        print("The sales of", sales)
+        print("The sales of: ", set_date(),"were: ", sales)
     elif choice == '6':
         printing_flavours(flavours)
         print("\n")
         printing_flavours(specials)
     elif choice == '7':
-        pass
-        # f = open("myfile.txt", "a")
-        # f.write(str(set_date()))
-        # Upload_file(flavours, "Classic flavours")
-        # Upload_file(specials, "Special Flavours")
+        f = open("scooper.txt", "a")
+        f.write(str(set_date()))
+        Upload_file(flavours, "Classic flavours")
+        Upload_file(specials, "Special Flavours")
+        f.write("It was sold: ")
+        f.write(sales)
+        f.write("\n")
+        f.close() 
+        
     elif choice == '8':
         if (check_sells(flavours) == len(flavours)) and (check_sells(specials) == len(specials)):
             print("We havens sold any flavours yet! Try again later")

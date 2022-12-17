@@ -1,0 +1,53 @@
+2022-12-16
+Classic flavours
+
+pistacho scoops sold: 15
+cookies and cream scoops sold: 10
+chocolate scoops sold: 0
+vanilla scoops sold: 4
+strawberry scoops sold: 6
+dulce de leche scoops sold: 8
+chocalte chip scoops sold: 2
+chocolate mint scoops sold: 1
+mango scoops sold: 3
+coffee scoops sold: 7
+
+Special Flavours
+
+caramelo scoops sold: 10
+looking good scoops sold: 0
+2022-12-17
+Classic flavours
+
+pistacho scoops sold: 25
+cookies and cream scoops sold: 2
+chocolate scoops sold: 3
+vanilla scoops sold: 2
+strawberry scoops sold: 0
+dulce de leche scoops sold: 7
+chocalte chip scoops sold: 4
+chocolate mint scoops sold: 1
+mango scoops sold: 0
+coffee scoops sold: 9
+
+Special Flavours
+
+praline scoops sold: 7
+arax scoops sold: 8
+2022-12-18
+Classic flavours
+
+pistacho scoops sold: 18
+cookies and cream scoops sold: 8
+chocolate scoops sold: 4
+vanilla scoops sold: 3
+strawberry scoops sold: 1
+dulce de leche scoops sold: 0
+chocalte chip scoops sold: 9
+chocolate mint scoops sold: 4
+mango scoops sold: 7
+coffee scoops sold: 9
+
+Special Flavours
+
+triple chocolate scoops sold: 23

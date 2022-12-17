@@ -6,7 +6,7 @@ from itertools import filterfalse
 from Mathematics import Mathematics
 flavours={"pistacho": 0, "cookies and cream": 0, "chocolate": 0, "vanilla": 0, "strawberry": 0, "dulce de leche": 0, "chocalte chip": 0, "chocolate mint": 0, "mango": 0, "coffee": 0}
 specials={}
-sales = {45}
+sales = {}
 sold = [0] 
 
 ### FUNCTIONS ###
@@ -168,7 +168,7 @@ while choice != '0':
     elif choice == '4':
         print("Sales so far: ", sum(sold))
     elif choice == '5':
-        print("The sales of: ", set_date(),"were: ", sales)
+        print("The sales of: ", set_date(),"were", sales)
     elif choice == '6':
         printing_flavours(flavours)
         print("\n")

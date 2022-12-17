@@ -1,13 +1,14 @@
 import os
-from datetime import date
+from datetime import date   
 from statistics import mean
 from math import isnan
 from itertools import filterfalse
-
-
+from Mathematics import Mathematics
 flavours={"pistacho": 0, "cookies and cream": 0, "chocolate": 0, "vanilla": 0, "strawberry": 0, "dulce de leche": 0, "chocalte chip": 0, "chocolate mint": 0, "mango": 0, "coffee": 0}
 specials={ }
 sales = {}
+sold = [0] 
+
 ### FUNCTIONS ###
 
 def display_title_bar():
@@ -78,7 +79,7 @@ def make_order():
     print("\n\t[1] One Scoop\n \t[2] Two Scoop\n ")
     try: 
         scoops = int(input("How many scoops? "))
-        if scoops < 3: 
+        if scoops < 3 and scoops != 0: 
             make_flavour(scoops)
             return scoops ###
         else: 
@@ -126,45 +127,45 @@ def printing_flavours(flav):
 #         f.write("\n")
 
 #Class where it will be stored with fucntions about stadistics, such as the trend, flavors most time scooped and others.
-class Mathematics: 
-    def __init__(self, listes, name):
-        self.listes = listes
-        self.name = name
+# class Mathematics: 
+#     def __init__(self, listes, name):
+#         self.listes = listes
+#         self.name = name
     
-    def sort_list(self):
-        sort_lists = []
-        for flavs in self.listes:
-            sort_lists.append(self.listes[flavs])
-        sort_lists = sorted(sort_lists)
-        key_list = list(self.listes.keys())
-        val_list = list(self.listes.values())
+#     def sort_list(self):
+#         sort_lists = []
+#         for flavs in self.listes:
+#             sort_lists.append(self.listes[flavs])
+#         sort_lists = sorted(sort_lists)
+#         key_list = list(self.listes.keys())
+#         val_list = list(self.listes.values())
  
-        position = val_list.index(sort_lists[-1])
+#         position = val_list.index(sort_lists[-1])
         
-        print("The flavour with bigger selling today was", key_list[position].capitalize(), "by selling: ", sort_lists[-1], "Scoops")
-        return sort_lists
+#         print("The flavour with bigger selling today was", key_list[position].capitalize(), "by selling: ", sort_lists[-1], "Scoops")
+#         return sort_lists
 
-    def get_media(self):
-        average = (float(mean(list(self.listes.values()))))
-        sum_up = sum(list(self.listes.values())) 
-        return print("From ", sum_up, "scoops sold of the", self.name, ",at least", average, "of the scoops were of this same flavour"   )
+#     def get_media(self):
+#         average = (float(mean(list(self.listes.values()))))
+#         sum_up = sum(list(self.listes.values())) 
+#         return print("From ", sum_up, "scoops sold of the", self.name, ",at least", average, "of the scoops were of this same flavour"   )
 
-    def get_less_favorite(self):
-        for i in self.listes:
-            if self.listes[i] == 0:
-                self.listes[i] = float('NaN')
-            else: 
-                pass
-        print(sum(map(isnan, list(self.listes.values()))), '/', len(self.listes), "flavours in", self.name, "didnt sold any scoop at all")
+#     def get_less_favorite(self):
+#         for i in self.listes:
+#             if self.listes[i] == 0:
+#                 self.listes[i] = float('NaN')
+#             else: 
+#                 pass
+#         print(sum(map(isnan, list(self.listes.values()))), '/', len(self.listes), "flavours in", self.name, "didnt sold any scoop at all")
 
 
-        clean = list(filterfalse(isnan, list(self.listes.values())))
-        key_list = list(self.listes.keys())
-        val_list = list(self.listes.values())
-        print("The next flavours were the only ones that made sales today")
-        for i in clean: 
-            position = val_list.index(i)
-            print("- ", key_list[position].capitalize()) 
+#         clean = list(filterfalse(isnan, list(self.listes.values())))
+#         key_list = list(self.listes.keys())
+#         val_list = list(self.listes.values())
+#         print("The next flavours were the only ones that made sales today")
+#         for i in clean: 
+#             position = val_list.index(i)
+#             print("- ", key_list[position].capitalize()) 
 
 def check_sells(list):
     x = 0
@@ -185,7 +186,6 @@ def update_flavours():
             print("-", special.title())
     else:
         print("Sorry i could undertand your answer")
-              
 ### MAIN PROGRAM ###
 
 # Set up a loop where users can choose what they'd like to do.
@@ -204,6 +204,7 @@ while choice != '0':
     elif choice == '2':
         update_flavours()
     elif choice == '3':
+        show_names()
         make_order()
     elif choice == '4':
         print("Sales so far: ", sum(sold))
@@ -221,7 +222,7 @@ while choice != '0':
         # Upload_file(flavours, "Classic flavours")
         # Upload_file(specials, "Special Flavours")
     elif choice == '8':
-        if (check_sells(flavours) == 10) or (check_sells(specials) == 2):
+        if (check_sells(flavours) == len(flavours)) and (check_sells(specials) == len(specials)):
             print("We havens sold any flavours yet! Try again later")
         else: 
             sort_1 = Mathematics(flavours, "Classic flavours")

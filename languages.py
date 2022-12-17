@@ -27,7 +27,7 @@ def display_title_bar():
     
 def get_user_choice():
     # Let users know what they can do.
-    print("\n[1]See flavours \n[2]Update specials \n[3]Order now \n[4]Sales \n[5] Finish Day \n[6] Flavours Sold \n[7]Save to data base \n[8]Stadistics \n[0]Quit \n")
+    print("\n[1]See flavours \n[2]Update specials \n[3]Order now \n[4]Sales \n[5]Finish Day \n[6]Flavours Sold \n[7]Save to data base \n[8]Stadistics \n[0]Quit \n")
     return input("\nWhat would you like to do? ")
     
 def show_names():
@@ -89,6 +89,7 @@ def make_order():
         print("You need to input a number like [1] or [2] ")
         make_order()
 
+#We set the date for our knowledge of which date we are doing, it will be used also for saving data in our python file
 def set_date():
     print("Set the day that you just finish! ")
     try:
@@ -99,6 +100,7 @@ def set_date():
         key_date = date(year, month, day)
         return key_date
 
+#In case the user makes any type of error it could be avoid
     except ValueError:
         print("Double check you are typing down on the correct order the date")
         set_date()
@@ -107,14 +109,14 @@ def set_date():
         set_date()
     
     
-
+#Prints the keys of our dictionaries 
 def printing_flavours(flav):
     for flavs in flav:
         print(flavs.capitalize(), "sold -",flav[flavs], "Scoops")
 
 #Add file, for having records of the sales and scoops sold
 
-
+#It will be used for uploading our sales by the end of the day into the python file
 def Upload_file(add_list, which_is):
     os.system('clear')
     f.write("\n")
@@ -126,6 +128,7 @@ def Upload_file(add_list, which_is):
         f.write(str(add_list[flavs]))
         f.write("\n")
 
+#It is used for the mathematics class, so if there hasn't been any type of sale yet, it will not allow us to run
 def check_sells(list):
     x = 0
     for flavs in list:
@@ -133,6 +136,7 @@ def check_sells(list):
             x += 1 
     return x  
 
+#Add our new special felvpurs into our dictionarie 
 def update_flavours():
     name = input("What's is the name of today's special flavour? \n").lower()
     specials[name] = 0 
@@ -168,7 +172,7 @@ while choice != '0':
     elif choice == '4':
         print("Sales so far: ", sum(sold))
     elif choice == '5':
-        print("The sales of: ", set_date(),"were", sales)
+        print("The sales of: ", set_date(),"were", sum(sold))
     elif choice == '6':
         printing_flavours(flavours)
         print("\n")
@@ -179,7 +183,7 @@ while choice != '0':
         Upload_file(flavours, "Classic flavours")
         Upload_file(specials, "Special Flavours")
         f.write("It was sold: ")
-        f.write(sales)
+        f.write(sum(sold))
         f.write("\n")
         f.close() 
         

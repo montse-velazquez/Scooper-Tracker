@@ -51,6 +51,7 @@ It will be an app where we will register how many scoops and of which flavour th
 Link for watching the Project Management: [Scooper Tracker](https://trello.com/invite/b/UqcKMLlY/ATTI68beee69974dc96c428f51f3f0174edf24282A60/scooper-tracker)
 
 ![Project Management](ProjectManagement.png)
+__** Each feature was done having in mind that a.e 'before being able to start working with might be feature 3, we have to create first feature 5 because will be the only one to save some data that feature 3 will need to be executed right' even though there was a project management it was setted that everything should be done by the night of december 18th__
 
 >R8.- Design help documentation which includes a set of instructions which accurately describe how to use and install the application. 
 
@@ -63,7 +64,27 @@ Link for watching the Project Management: [Scooper Tracker](https://trello.com/i
 4. Save repository on a directory with the name of your choice
 5. Open terminal and go inside of the folder that you just created and use the command for opening it 
 
-         $code . 
+   1. Write in terminal the next:
+
+        __It will allow you to execute 'Scooper Tracker'__
+
+            chmod +x my_wrapper.sh 
+
+    2. Then we will need to check by writting in the terminal: 
+
+            ls -l
+        
+        If the command was right we should be able to see all the files that you just clone, for now it will only matter that the file __script.py__ has an 'x' like this at the begining of the command:
+
+                -rwxr-xr-x
+
+    3. If so, means that you are doing all right, and that you are just one step before being able to run 'Scooper Tracker'. Now the terminal you will write:
+
+            ./script.sh
+
+        You are inside of Scooper Tracker! Congrats :)
+
+        __* If we decide to run the pytest's done in the app, we have to download first pytest, otherwise we will not be able to see results since this command has not been added on the scrypt.sh file__
 
 
  __How to use scoop tracker__

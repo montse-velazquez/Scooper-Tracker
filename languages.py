@@ -1,13 +1,13 @@
 import os
 from datetime import date   
-from statistics import mean
-from math import isnan
-from itertools import filterfalse
+# from statistics import mean
+# from math import isnan
+# from itertools import filterfalse
 from Mathematics import Mathematics
-flavours={"pistacho": 0, "cookies and cream": 0, "chocolate": 0, "vanilla": 0, "strawberry": 0, "dulce de leche": 0, "chocalte chip": 0, "chocolate mint": 0, "mango": 0, "coffee": 0}
-specials={}
+flavours={"pistacho": 5, "cookies and cream": 10, "chocolate": 6, "vanilla": 9, "strawberry": 0, "dulce de leche": 0, "chocalte chip": 2, "chocolate mint": 1, "mango": 0, "coffee": 4}
+specials={"caramel": 0}
 sales = {}
-sold = [0] 
+sold = [225] 
 
 ### FUNCTIONS ###
 
@@ -27,7 +27,7 @@ def display_title_bar():
     
 def get_user_choice():
     # Let users know what they can do.
-    print("\n[1]See flavours \n[2]Update specials \n[3]Order now \n[4]Sales \n[5]Finish Day \n[6]Flavours Sold \n[7]Save to data base \n[8]Stadistics \n[0]Quit \n")
+    print("\n[1]See flavours \n[2]Update specials \n[3]Order now \n[4]Sales \n[5]Finish Day \n[6]Flavours Sold \n[7]Save to data base \n[8]Stadistics \n[9]See files \n[0]Quit \n")
     return input("\nWhat would you like to do? ")
     
 def show_names():
@@ -201,7 +201,7 @@ while choice != '0':
             sort_2.get_media()
             sort_2.get_less_favorite()
     elif choice == '9':
-        f = open("myfile.txt", "r")
+        f = open("scooper.txt", "r")
         print(f.read())
 
     elif choice == '0':

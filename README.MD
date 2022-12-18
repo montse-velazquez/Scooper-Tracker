@@ -5,7 +5,6 @@
  - [__GitHub__](https://github.com/montse-velazquez/Scooper-Tracker)
 
 > R5.- Identify any code style guide or styling conventions that the application will adhere to. Reference the chosen style guide appropriately. 
-
 We used for the creation of the terminal app Python 3.9.6 version, where we create a virtual enviroment for pytest, and packages, we used packages and modules like: 
 -   import os
 -   from datetime import date   
@@ -26,7 +25,7 @@ It will be an app where we will register how many scoops and of which flavour th
 
 1. One feature will be the fact that it will give us the total amount of each sale, since there will be customers that might choose different number of scoops which have a different price. 
 
-     - We will complete this task by saving the input of the user since the beginning, and the running a function that will give us out bill, based in which conditions get true so it can print a different price on our screens, aside that this amount will be saving too for another feature. 
+    - We will complete this task by saving the input of the user since the beginning, and the running a function that will give us out bill, based in which conditions get true so it can print a different price on our screens, aside that this amount will be saving too for another feature.
 
 2. The app will collect data about which classic flavour  and special flavour the costumers tend to choose usually 
 
@@ -35,7 +34,7 @@ It will be an app where we will register how many scoops and of which flavour th
 
 3. We are going to be able to see the sales and tendencies of other days that were registered 
 
-    - There will be already data saved on the program as a mock up of how it will look like, however by the end of the day when sales are done, we will be able to finish the day by registering the day it is, the sum up of the sales have been being saved on time of each order, using packages of the datetime, and setting it all using different functions together one that saves the sales amount and the other that will allow us to finish the day by just setting the date.
+    - There will be already data saved on the program as a mock up of how it will look like, however by the end of the day when sales are done, we will be able to finish the day by registering the day it is, the sum up of the sales have been being saved on time of each order, using packages of the datetime, and setting it all using different functions together one that saves the sales amount and the other that will allow us to finish the day by just setting the dat.
 
 4. The list of flavours will be able to be updated at the beginning of the day
 
@@ -62,7 +61,9 @@ Link for watching the Project Management: [Scooper Tracker](https://trello.com/i
 2. Check that the version of Python is Pyhton3
 3. On GitHub select to clone repository
 4. Save repository on a directory with the name of your choice
-5. Open terminal and go inside of the folder that you just created and use the command for opening it [ code . ]
+5. Open terminal and go inside of the folder that you just created and use the command for opening it 
+
+         $code . 
 
 
  __How to use scoop tracker__
@@ -73,4 +74,3 @@ Link for watching the Project Management: [Scooper Tracker](https://trello.com/i
  4. You can always check any other feature like, flavours sold, but dont use Save to Data Base unless you are 100% percent that you are closing slaes for the day 
  5. Once you have closed your store, you can select the Save to Data Base, set the date and save it
  6. You can also check the statistics of the day, this option is open everytime, however it will make more sense after you have finish the day. aside of being more helpful!
-

@@ -4,7 +4,7 @@ from Mathematics import Mathematics
 flavours={"pistacho": 9, "cookies and cream": 10, "chocolate": 0, "vanilla": 14, "strawberry": 2, "dulce de leche": 3, "chocalte chip": 5, "chocolate mint": 7, "mango": 4, "coffee": 10}
 specials={"caramel": 3}
 
-###ACTUAL FUNCTION###
+###ACTUAL FUNCTION taken from Mathematics class###
 # def get_media(self):
 #         average = (float(mean(list(self.listes.values()))))
 #         sum_up = sum(list(self.listes.values())) 

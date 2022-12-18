@@ -4,10 +4,10 @@ from datetime import date
 # from math import isnan
 # from itertools import filterfalse
 from Mathematics import Mathematics
-flavours={"pistacho": 5, "cookies and cream": 10, "chocolate": 6, "vanilla": 9, "strawberry": 0, "dulce de leche": 0, "chocalte chip": 2, "chocolate mint": 1, "mango": 0, "coffee": 4}
-specials={"caramel": 0}
+flavours={"pistacho": 0, "cookies and cream": 0, "chocolate": 0, "vanilla": 0, "strawberry": 0, "dulce de leche": 0, "chocalte chip": 0, "chocolate mint": 0, "mango": 0, "coffee": 0}
+specials={}
 sales = {}
-sold = [225] 
+sold = [] 
 
 ### FUNCTIONS ###
 

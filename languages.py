@@ -179,6 +179,7 @@ while choice != '0':
         printing_flavours(specials)
     elif choice == '7':
         f = open("scooper.txt", "a")
+        f.write("\n")
         f.write(str(set_date()))
         Upload_file(flavours, "Classic flavours")
         Upload_file(specials, "Special Flavours")
